@@ -1,0 +1,102 @@
+.bgBattle{
+    background-image: url("./assets/pokemonBattleBase.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 68%;
+    margin-top: 100px;
+    z-index: 2;
+    top: 7%
+}
+
+.backgroundScenario{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 400px;
+    background-image: url("./assets/bgfight.jpg");
+    background-size: cover;
+}
+
+.pokemonFoeBG img{
+    position: absolute;
+    height: 40px;
+    width: 150px;
+    z-index: 2;
+    left: 50%;
+    top: 2%;
+}
+
+.pokemonFoe img{
+    position: absolute;
+    height: 140px;
+    width: 150px;
+    z-index: 3;
+    left: 56%;
+    top: 3%;
+}
+
+.currentPokemon img{
+    position: absolute;
+    height: 140px;
+    width: 150px;
+    z-index: 4;
+    left: 40%;
+    top: 20%;
+}
+
+.textBox{
+    padding: 10px;
+    background-color: white;
+    width: 350px;
+    position: absolute;
+    z-index: 4;
+    left: 10%;
+    top: 15%;
+    border: 2px solid #008FDB;
+}
+
+.details{
+    background-color: white;
+    left: 66.3%;
+    top: 27%;
+    padding: 10px;
+    width: 380px;
+    height: 100px;
+    position: absolute;
+    z-index: 5;
+    border: 2px solid #008FDB;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.options{
+    background-color: white;
+    top: 27%;
+    left: 86%;
+    padding: 10px;
+    width: 220px;
+    height: 100px;
+    border: 2px solid #008FDB;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    position: absolute;
+    z-index: 5;
+    font-size: 15px;
+}
+
+.options div{
+    margin: auto;
+    cursor: pointer;
+}
+
+.options div:hover{
+    text-shadow: 1px 1px 2px #008FDB;
+}

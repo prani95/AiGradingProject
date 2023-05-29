@@ -1,0 +1,23 @@
+.company{
+    font-size: 24px;
+    background-image: linear-gradient(white, #E98C3B, #E25423, #E98C3B, white);
+    text-shadow: 1px 1px 2px #ff0000;
+    position: relative;
+    z-index: 10;
+}
+
+.charizard img{
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    z-index: -1;
+    left: 85%;
+    top: 72%;
+}
+
+.row{
+    width: 100%;
+}
+.col{
+    padding: 0 150px;
+}

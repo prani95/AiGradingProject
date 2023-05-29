@@ -1,0 +1,16 @@
+.home{
+    font-size: 24px;
+    background-image: linear-gradient(white, #5FB8E0, #008FDB, #5FB8E0, white);
+    text-shadow: 1px 1px 2px #008FDB;
+    position: relative;
+    z-index: 10;
+}
+
+.blastoise img{
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    z-index: -1;
+    left: 85%;
+    top: 60%;
+}

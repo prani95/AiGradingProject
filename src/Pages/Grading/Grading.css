@@ -1,0 +1,16 @@
+.grading{
+    font-size: 24px;
+    background-image: linear-gradient(white, #4B8A8A, #629062, #4B8A8A, white);
+    text-shadow: 1px 1px 2px #009b00;
+    position: relative;
+    z-index: 10;
+}
+
+.venusaur img{
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    z-index: -1;
+    left: 85%;
+    top: 58%;
+}

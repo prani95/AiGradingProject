@@ -1,0 +1,17 @@
+.erba {
+    padding:0 !important;
+    height: 32px !important;
+    border: none;
+}
+
+.noheight {
+    height: 32px !important;
+}
+table {
+    border-spacing: 0px;
+}
+
+.tile {
+    height: 32px;
+    width: 32px;
+}

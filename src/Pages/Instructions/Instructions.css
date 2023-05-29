@@ -1,0 +1,55 @@
+.instructions{
+    font-size: 24px;
+    z-index: 10;
+    position: relative;
+    height: 100%;
+    padding-top: 84px;
+}
+
+#goal-col{
+    text-shadow: 1px 1px 2px #db0000;
+    position: relative;
+}
+
+#movement-col{
+    text-shadow: 1px 1px 2px #008FDB;
+    position: relative;
+    z-index: 10;
+}
+
+#main-col{
+    text-shadow: 1px 1px 2px #1adb00;
+    position: relative;
+}
+
+#kyogre{
+    width: 120px;
+    position: absolute;
+    z-index: -1;
+    top:-15px;
+    left:510px;
+    transform: rotate(-10deg)
+}
+
+#groudon{
+    width: 110px;
+    position: absolute;
+    z-index: -1;
+    transform: rotate(10deg);
+    top: -30px;
+    left: 350px;
+}
+
+#rayquaza{
+    width: 80px;
+    position: absolute;
+    z-index: -1;
+    transform: rotate(17deg);
+    top:-85px;
+    left:48%
+}
+
+.instructions .col div{
+    font-size: 16px;
+    text-shadow: none;
+}
