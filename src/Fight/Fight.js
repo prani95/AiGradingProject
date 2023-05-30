@@ -7,6 +7,7 @@ import selectAudio from "../music/selectsound.mp3";
 
 const baseTextInBox = "Parte la sfida con Francesco Sola";
 const createTextInBox = "Francesco Sola inizia a digitare codice creando la pagina ";
+const functionNotEnabledText = "Francesco Sola non obbedisce";
 const EscapeRate = 30;
 
 function Fight(props) {
@@ -96,13 +97,9 @@ function Fight(props) {
                 props.setCurrentPage('Company')
                 break;
             case 'Zaino':
-                setInputDisabled(true)
-                setTextInBox("Francesco Sola non obbedisce")
-                setTimeout(() => { setTextInBox(baseTextInBox); setInputDisabled(false);}, 2000)
-                break;
             case 'Pkmn':
                 setInputDisabled(true)
-                setTextInBox("Francesco Sola non obbedisce")
+                setTextInBox(functionNotEnabledText)
                 setTimeout(() => { setTextInBox(baseTextInBox); setInputDisabled(false);}, 2000)
                 break;
             

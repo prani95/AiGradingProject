@@ -132,11 +132,6 @@ const stopAudioFight = () => {
   }
 
   useEffect(() => {
-    console.log(position)
-  },[position]) 
-
-  useEffect(() => {
-    console.log(isInBattle)
     if(isInBattle) { playAudioFight() }
     else { stopAudioFight(); inBattleRef.current = false}
   },[isInBattle]) 

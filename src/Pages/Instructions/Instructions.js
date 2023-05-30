@@ -8,23 +8,23 @@ import rayquaza from '../../assets/rayquaza.png';
 function Instructions() {
   return (
     <div className='instructions'>
-        <div id='main-col'>Instructions
+        <div id='main-col'>Istruzioni
           <img id="rayquaza" src={rayquaza}/>
         </div>
         <div className="container text-center">
             <div className="row align-items-start">
                 <div id='movement-col' className="col base-margin-top">
                   <img id="kyogre" src={kyogre}/>
-                    Movement
+                    Comandi
                     <div className='base-margin-top'>
                         <img src={arrows}></img>
                     </div>
                 </div>
                 <div id='goal-col' className="col base-margin-top">
-                    Goal
+                    Obbiettivo
                     <img id="groudon" src={groudon}/>
                     <div className='base-margin-top'>
-                        Find the Pokemon in the wild and battle it to change the page.
+                        Cerca il pokemon nell'erba alta e inizia la lotta per cambiare pagina.
                     </div>
                 </div>
             </div>
