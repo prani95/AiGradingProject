@@ -14,3 +14,15 @@
     left: 85%;
     top: 58%;
 }
+
+/* Media Queries for Phones */
+@media (max-width: 480px) {
+    .grading{
+        font-size: 14.8px;
+        z-index: 10;
+    }
+
+    .venusaur img{
+        visibility: hidden;
+    }
+}

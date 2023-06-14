@@ -14,3 +14,15 @@
     left: 85%;
     top: 60%;
 }
+
+/* Media Queries for Phones */
+@media (max-width: 480px) {
+    .home{
+        font-size: 15.33px;
+        z-index: 10;
+    }
+
+    .blastoise img{
+        visibility: hidden;
+    }
+}

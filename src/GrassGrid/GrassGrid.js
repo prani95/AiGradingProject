@@ -1,5 +1,5 @@
-import React from 'react'
-import CreateTable from './CreateTable/CreateTable'
+import React from 'react';
+import CreateTable from './CreateTable/CreateTable';
 
 function GrassGrid(props) {
   return (

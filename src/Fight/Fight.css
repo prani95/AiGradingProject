@@ -1,102 +1,311 @@
-.bgBattle{
-    background-image: url("./assets/pokemonBattleBase.png");
+.bgBattleMe {
+  background-image: url("./assets/pokemonBattleBaseMe.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  width: 60%;
+  height: 30%;
+  margin-top: 5%;
+  z-index: 2;
+  top: unset;
+  bottom: 5%;
+  left: 15%;
+}
+
+.bgBattleFoe {
+  background-image: url("./assets/pokemonBattleBaseFoe.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  width: 15%;
+  height: 30%;
+  margin-top: 5%;
+  z-index: 2;
+  top: 2%;
+  right: 30%;
+}
+
+.backgroundScenario {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 40vh;
+  background-image: url("./assets/bgfight.jpg");
+  background-size: cover;
+}
+
+.pokemonFoeBG img {
+  position: absolute;
+  height: 5vh;
+  width: 18vw;
+  z-index: 2;
+  left: 50%;
+  top: 2%;
+  transform: translateX(-50%);
+}
+
+.pokemonFoe img {
+  position: absolute;
+  height: 14vh;
+  width: 8vw;
+  z-index: 3;
+  right: 30%;
+  top: 3%;
+  transform: translateX(-50%);
+}
+
+.currentPokemon img {
+  position: absolute;
+  height: 14vh;
+  width: 9vw;
+  z-index: 4;
+  left: 45%;
+  top: 20%;
+  transform: translateX(-50%);
+}
+
+.textBox {
+  padding: 10px;
+  background-color: white;
+  width: 80%;
+  max-width: 350px;
+  position: absolute;
+  z-index: 4;
+  left: 10%;
+  top: 15%;
+  border: 2px solid #008FDB;
+}
+
+.details {
+  background-color: white;
+  left: 66.3%;
+  top: 27%;
+  padding: 10px;
+  width: 80%;
+  max-width: 380px;
+  height: 100px;
+  position: absolute;
+  z-index: 5;
+  border: 2px solid #008FDB;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.options {
+  background-color: white;
+  top: 27%;
+  left: 86%;
+  padding: 10px;
+  width: 80%;
+  max-width: 220px;
+  height: 100px;
+  border: 2px solid #008FDB;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+  position: absolute;
+  z-index: 5;
+  font-size: 15px;
+}
+
+.options div {
+  margin: auto;
+  cursor: pointer;
+}
+
+.options div:hover {
+  text-shadow: 1px 1px 2px #008FDB;
+}
+
+/* Responsive Styles for Tablets Vertically*/
+@media (max-width: 1240px) {
+  .pokemonFoe img {
+    height: 14vh;
+    width: 18vw;
+    left: 65%;
+    top: 0%;
+  }
+
+  .currentPokemon img{
+      left: 40%;
+      height: 10vh;
+      width: 20vw;
+      top: 15%;
+  }
+
+  .pokemonFoeBG img
+    {
+      visibility: hidden;
+  }
+
+  .textBox {
+    top: 1%;
+    width: 40%;
+    max-width: 300px;
+    font-size: 14px;
+    
+  }
+}
+
+  /* Responsive Styles for Tablets Vertically*/
+  @media (max-width: 1024px) {
+  .pokemonFoe img {
+    height: 14vh;
+    width: 18vw;
+    left: 65%;
+    top: 0%;
+  }
+
+  .currentPokemon img{
+      left: 40%;
+      height: 10vh;
+      width: 20vw;
+      top: 15%;
+  }
+
+  .pokemonFoeBG img
+    {
+      visibility: hidden;
+  }
+
+  .textBox {
+    top: 1%;
+    width: 40%;
+    max-width: 300px;
+    font-size: 14px;
+    
+  }
+
+  .details,
+  .options {
+    left: 80%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 300px;
+    font-size: 14px;
+  }
+}
+
+/* Responsive Styles for Tablets */
+@media (max-width: 820px) {
+  .pokemonFoe img {
+    height: 14vh;
+    width: 18vw;
+    left: 75%;
+    top: 0%;
+  }
+
+  .currentPokemon img{
+      left: 36%;
+      height: 10vh;
+      width: 16vw;
+      top: 15%;
+  }
+
+  .pokemonFoeBG img
+    {
+      visibility: hidden;
+  }
+
+  .textBox {
+    top: 1%;
+    width: 40%;
+    max-width: 300px;
+    font-size: 14px;
+    
+  }
+
+  .details,
+  .options {
+    left: 80%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 300px;
+    font-size: 14px;
+  }
+}
+
+
+/* Responsive Styles for Phones */
+@media (max-width: 600px) {
+  .backgroundScenario{
+    height: 100%;
+  }
+
+  .pokemonFoe img {
+    height: 15vh;
+    width: 30vw;
+    left: unset;
+    right: 10%;
+    top: 5%;
+  }
+
+  .currentPokemon img{
+      left: 45%;
+      height: 10vh;
+      width: 25vw;
+      top: unset;
+      bottom: 35%;
+  }
+
+  .pokemonFoeBG img
+    {
+      visibility: hidden;
+  }
+
+  .textBox {
+    top: 35%;
+    width: 80%;
+    left: 11%;
+    max-width: 300px;
+    font-size: 14px;
+    
+  }
+
+  .details,
+  .options {
+    top: unset;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 300px;
+    font-size: 14px;
+  }
+
+  .bgBattleMe {
+    background-image: url("./assets/pokemonBattleBaseMe.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     position: absolute;
-    width: 100%;
-    height: 68%;
-    margin-top: 100px;
+    width: 60%;
+    height: 30%;
+    margin-top: 5%;
     z-index: 2;
-    top: 7%
-}
+    top: unset;
+    bottom: 21%;
+    left: 15%;
+  }
 
-.backgroundScenario{
+  .bgBattleFoe {
+    background-image: url("./assets/pokemonBattleBaseFoe.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 400px;
-    background-image: url("./assets/bgfight.jpg");
-    background-size: cover;
-}
-
-.pokemonFoeBG img{
-    position: absolute;
-    height: 40px;
-    width: 150px;
+    width: 60%;
+    height: 30%;
+    margin-top: 5%;
     z-index: 2;
-    left: 50%;
     top: 2%;
-}
-
-.pokemonFoe img{
-    position: absolute;
-    height: 140px;
-    width: 150px;
-    z-index: 3;
-    left: 56%;
-    top: 3%;
-}
-
-.currentPokemon img{
-    position: absolute;
-    height: 140px;
-    width: 150px;
-    z-index: 4;
-    left: 40%;
-    top: 20%;
-}
-
-.textBox{
-    padding: 10px;
-    background-color: white;
-    width: 350px;
-    position: absolute;
-    z-index: 4;
-    left: 10%;
-    top: 15%;
-    border: 2px solid #008FDB;
-}
-
-.details{
-    background-color: white;
-    left: 66.3%;
-    top: 27%;
-    padding: 10px;
-    width: 380px;
-    height: 100px;
-    position: absolute;
-    z-index: 5;
-    border: 2px solid #008FDB;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.options{
-    background-color: white;
-    top: 27%;
-    left: 86%;
-    padding: 10px;
-    width: 220px;
-    height: 100px;
-    border: 2px solid #008FDB;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    align-items: center;
-    gap: 15px;
-    position: absolute;
-    z-index: 5;
-    font-size: 15px;
-}
-
-.options div{
-    margin: auto;
-    cursor: pointer;
-}
-
-.options div:hover{
-    text-shadow: 1px 1px 2px #008FDB;
+    left: unset;
+    right: 10%;
+  }
 }

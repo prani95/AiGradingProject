@@ -2,7 +2,7 @@ import React from 'react'
 import './Home.css'
 import blastoise from '../../assets/blastoise.png'
 
-function Home() {
+function Home(props) {
   return (
     <div className='home'>
         <div>Home</div>
@@ -14,6 +14,7 @@ function Home() {
                 <div className="col base-margin-top">
                     Il nuovo riferimento nel panorama del grading per contenuti di innovazione: soluzioni realmente applicabili ad una contemporaneita' che vive di capacita' digitale, di tempo reale, di comunicazione immediata.
                 </div>
+                {props.windowWidth <= 480 ? <div className="col base-margin-top"><div key="Back" onClick={() => {props.setCurrentPage('')}}>Back</div></div> : <></>}
                 <div className='blastoise'><img src={blastoise}></img></div>
             </div>
         </div>

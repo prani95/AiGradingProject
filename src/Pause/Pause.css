@@ -1,0 +1,31 @@
+.inpauseMenu {
+    top: 20%;
+    left: 70%;
+    position: absolute;
+    z-index: 20;
+}
+  
+.noinpauseMenu {
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 20;
+}
+
+/* Media Queries for Tablets */
+@media (max-width: 768px) {
+    .inpauseMenu {
+      top: 15%;
+      left: 65%;
+    }
+}
+
+/* Media Queries for Phones */
+@media (max-width: 480px) {
+    .inpauseMenu {
+      top: 4%;
+      left: 20%;
+      height: 60vh;
+    }
+}

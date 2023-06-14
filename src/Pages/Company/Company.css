@@ -1,23 +1,29 @@
-.company{
-    font-size: 24px;
+.company {
+    font-size: 19px;
     background-image: linear-gradient(white, #E98C3B, #E25423, #E98C3B, white);
     text-shadow: 1px 1px 2px #ff0000;
     position: relative;
     z-index: 10;
-}
-
-.charizard img{
+  }
+  
+  .charizard img {
     position: absolute;
     height: 240px;
     width: 240px;
     z-index: -1;
     left: 85%;
     top: 72%;
-}
+  }
+  
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .company{
+      font-size: 12.6px;
+      z-index: 10;
+  }
 
-.row{
-    width: 100%;
+  .charizard img{
+      visibility: hidden;
+  }
 }
-.col{
-    padding: 0 150px;
-}
+  

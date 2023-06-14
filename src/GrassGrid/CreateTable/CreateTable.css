@@ -8,6 +8,7 @@
     height: 32px !important;
 }
 table {
+    position: relative;
     border-spacing: 0px;
 }
 

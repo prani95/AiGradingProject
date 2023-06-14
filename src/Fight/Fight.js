@@ -7,6 +7,7 @@ import selectAudio from "../music/selectsound.mp3";
 
 const baseTextInBox = "Parte la sfida con Francesco Sola";
 const createTextInBox = "Francesco Sola inizia a digitare codice creando la pagina ";
+const notRespondText = "Francesco Sola non obbedisce";
 const EscapeRate = 30;
 
 function Fight(props) {
@@ -84,21 +85,24 @@ function Fight(props) {
                 setMoveBox(['Lotta','Zaino','Pkmn','Fuga'])
                 break;
             case 'Home':
+                setInputDisabled(true);
                 setTextInBox(createTextInBox + "Home")
-                props.setCurrentPage('Home')
+                setTimeout(() => { props.setCurrentPage('Home'); setInputDisabled(false);}, 1000)
                 break;
             case 'Grading':
+                setInputDisabled(true);
                 setTextInBox(createTextInBox + "Grading")
-                props.setCurrentPage('Grading')
+                setTimeout(() => { props.setCurrentPage('Grading'); setInputDisabled(false);}, 1000)
                 break;
             case 'Company':
+                setInputDisabled(true);
                 setTextInBox(createTextInBox + "Company")
-                props.setCurrentPage('Company')
+                setTimeout(() => { props.setCurrentPage('Company'); setInputDisabled(false);}, 1000)
                 break;
             case 'Zaino':
             case 'Pkmn':
                 setInputDisabled(true)
-                setTextInBox("Francesco Sola non obbedisce")
+                setTextInBox(notRespondText)
                 setTimeout(() => { setTextInBox(baseTextInBox); setInputDisabled(false);}, 2000)
                 break;
             
@@ -108,7 +112,8 @@ function Fight(props) {
   return (
     <div className='Fight'>
         <div className='backgroundScenario'>
-            <div className='bgBattle'></div>
+            <div className='bgBattleMe'></div>
+            <div className='bgBattleFoe'></div>
         </div>
         <div className='pokemonFoeBG'><img src={meBG}></img></div>
         <div className='pokemonFoe'><img src={mePokemon}></img></div>
