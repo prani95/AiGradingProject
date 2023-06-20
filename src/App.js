@@ -8,10 +8,8 @@ import Pause from './Pause/Pause';
 import Company from './Pages/Company/Company';
 import chillAudio from "./music/ChillingTheme.mp3";
 import battleAudio from "./music/BattleTheme.mp3";
-import gameBoyUnderImage from './assets/gameboy-under.png';
-import gameBoyTopImage from './assets/gameboy-top.png';
-import gameBoyLeftImage from './assets/gameboy-left.png';
-import gameBoyRightImage from './assets/gameboy-right.png';
+import startMenuAudio from "./music/startmenu.mp3";
+import GameBoy from './GameBoy/GameBoy';
 
 function App() {
 
@@ -23,16 +21,19 @@ function App() {
   const [isInBattle, setIsInBattle] = useState(false);
   const [isInPause, setIsInPause] = useState(false);
 
-  const [inPauseFix, setInPauseFix] = useState(false);
-
   const [currentPage, setCurrentPage] = useState('');
 
   const [audioBg] = useState(new Audio(chillAudio));
   const [audioFight] = useState(new Audio(battleAudio));
+  const [audioStartMenu] = useState(new Audio(startMenuAudio));
+
+  const [selectedMenu, setSelectedMenu] = useState(0);
+  const [pauseArray] = useState(["Pokédex","Pokémon","Borsa","AiGrading","Salva","Opzioni","Esci"]);
 
   const posRef = useRef(position);
   const inBattleRef = useRef(isInBattle);
   const inPauseRef = useRef(isInPause);
+  const selectedRef = useRef(selectedMenu);
 
   const numRows = Math.floor(windowHeight / 32);
   const numCells = Math.floor(windowWidth / 32);
@@ -44,7 +45,7 @@ function App() {
     let objCoords = {
         x: coordX,
         y: coordY
-    } 
+    };
     posRef.current = objCoords;
 
     setPosition(objCoords);
@@ -80,6 +81,13 @@ function App() {
     audioFight.loop = true;
   }
 
+  const playAudioStartMenu = () => {
+    audioStartMenu.pause();
+    audioStartMenu.currentTime = 0;
+    audioStartMenu.play();
+    audioStartMenu.volume = 0.05;
+  }
+
   const stopAudioFight = () => {
     audioFight.pause();
     audioFight.currentTime = 0;
@@ -91,83 +99,112 @@ function App() {
     return randomEncounter < pokemonEncounterRate;
   }
 
+  const pause = ()=>{
+    inPauseRef.current = !inPauseRef.current;
+    setIsInPause(inPauseRef.current);
+    playAudioStartMenu();
+  }
+
+  const movePause = (move) => {
+    switch(move){
+      case 'ArrowUp':
+          selectedRef.current--;
+      break;
+      case 'ArrowDown':
+          selectedRef.current++;
+      break;
+    }
+    if(selectedRef.current >= pauseArray.length) selectedRef.current = 0;
+    if(selectedRef.current < 0) selectedRef.current = pauseArray.length - 1;
+    setSelectedMenu(selectedRef.current);      
+  }
+
+  const move = (move) => {
+    let obj  = {};
+    let posX = posRef.current.x;
+    let posY = posRef.current.y;
+    switch(move){
+      case 'ArrowUp':
+          obj = {
+              x: posX,
+              y: (posY - 1 < 0) ? 0 : posY -1
+          };
+      break;
+      case 'ArrowDown':
+          obj = {
+              x: posX,
+              y: (posY + 1 >= numRows - 1) ? numRows - 1 : posY + 1
+          };
+      break;
+      case 'ArrowLeft':
+          obj = {
+              x: (posX - 1 < 0) ? 0 :posX - 1,
+              y: posY
+          };
+      break;
+      case 'ArrowRight':
+          obj = {
+              x: (posX + 1 >= numCells - 1) ? numCells - 1 : posX + 1,
+              y: posY
+          };
+      break;
+    }
+    posRef.current = obj;
+    setPosition(obj);
+    let randomEncounter =  Math.floor(Math.random() * 100);
+    if(EncounterHandler(randomEncounter)){
+      inBattleRef.current = true;
+      setIsInBattle(true);
+      setCurrentPage('');
+    }
+  }
+
   const movementHandler = (direction) => {
     if(direction.key !== 'ArrowUp' && direction.key !== 'ArrowDown' && direction.key !== 'ArrowLeft' && direction.key !== 'ArrowRight') return;
     if(inPauseRef.current) return;
     if(inBattleRef.current) return;
-    playAudioBG()
-    let posX = posRef.current.x;
-    let posY = posRef.current.y;
-    let obj  = {};
-    let randomEncounter =  Math.floor(Math.random() * 100)
-    switch(direction.key){
-        case 'ArrowUp':
-            obj = {
-                x: posX,
-                y: (posY - 1 < 0) ? 0 : posY -1
-            }
-        break;
-        case 'ArrowDown':
-            obj = {
-                x: posX,
-                y: (posY + 1 >= numRows - 1) ? numRows - 1 : posY + 1
-            }
-        break;
-        case 'ArrowLeft':
-            obj = {
-                x: (posX - 1 < 0) ? 0 :posX - 1,
-                y: posY
-            }
-        break;
-        case 'ArrowRight':
-            obj = {
-                x: (posX + 1 >= numCells - 1) ? numCells - 1 : posX + 1,
-                y: posY
-            }
-        break;
-    }
-    posRef.current = obj;
-    setPosition(obj)
-    if(EncounterHandler(randomEncounter)){
-      inBattleRef.current = true
-      setIsInBattle(true)
-      setCurrentPage('')
-    }
+    playAudioBG();
+    move(direction.key);
   }
 
   useEffect(() => {
-    if(isInBattle) { playAudioFight() }
-    else { stopAudioFight(); inBattleRef.current = false}
+    if(isInBattle) { playAudioFight(); }
+    else { stopAudioFight(); inBattleRef.current = false;}
   },[isInBattle]) 
 
   return (
     <div className="App">
-      { windowWidth <= 480 && (<>
-                <img className='gameboy-top' style={{width:windowWidth}} src={gameBoyTopImage}></img>
-                <img className='gameboy-under' style={{width:windowWidth}} src={gameBoyUnderImage}></img>
-                <img className='gameboy-left' style={{height:windowHeight}} src={gameBoyLeftImage}></img>
-                <img className='gameboy-right' style={{height:windowHeight}} src={gameBoyRightImage}></img></>) }
       <div>
+        <GameBoy
+          windowWidth = {windowWidth}
+          windowHeight = {windowHeight}
+          move = {move}
+          isInPause = {isInPause}
+          pauseFunction = {pause}
+          movePause = {movePause}>
+        </GameBoy>
         {isInBattle ? 
         <Fight
           setIsInBattle = {setIsInBattle}
-          setCurrentPage = {setCurrentPage}
-        ></Fight>
+          setCurrentPage = {setCurrentPage}>
+        </Fight>
         :
         <>
           <Pause 
-            isInBattle = {isInBattle}
-            setIsInPause = {setIsInPause}
-            inPauseRef = {inPauseRef}
-            setInPauseFix = {setInPauseFix}
-            inPauseFix = {inPauseFix}>
+              setIsInPause = {setIsInPause}
+              inPauseRef = {inPauseRef}
+              pauseFunction = {pause}
+              movePause = {movePause}
+              pauseArray = {pauseArray}
+              selectedMenu = {selectedMenu}>
           </Pause>
           <GrassGrid 
             x = {numCells} 
             y = {numRows} 
             playerPosition = {{x: position.x, y: position.y}}>
           </GrassGrid>
-        </>}
+        </>
+        }
       </div>
       <div className='bottom-section'>
         {switchPage()}

@@ -7,7 +7,7 @@ function Home(props) {
     <div className='home'>
         <div>Home</div>
         <div className="container text-center">
-            <div className="row align-items-start">
+            <div className={props.windowWidth <= 480 ? '' : 'row ' + 'align-items-start'}>
                 <div className="col base-margin-top">
                     AiGrading AiSystem e` una completa architettura di sistemi, applicazioni, dati e tecnologie in blockchain che supportano uno staff estremamente qualificato per rendere trasparente e unica l’esperienza di grading.
                 </div>

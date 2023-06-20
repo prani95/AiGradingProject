@@ -49,26 +49,6 @@ body {
 
 /* Media Queries for Phones */
 @media (max-width: 480px) {
-  .gameboy-under {
-    bottom: 0%;
-    position: fixed;
-    z-index: 300;
-  }
-  .gameboy-top {
-    position: fixed;
-    z-index: 300;
-    top: 0%;
-  }  
-  .gameboy-left {
-    position: fixed;
-    z-index: 299;
-    left: 0%;
-  }
-  .gameboy-right {
-    position: fixed;
-    z-index: 299;
-    right: 0%;
-  }
   .bottom-section {
     margin-top: 1rem;
   }

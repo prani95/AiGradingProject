@@ -1,0 +1,60 @@
+/* Media Queries for Phones */
+@media (max-width: 480px) {
+    .gameboy-under {
+      bottom: 0%;
+      position: fixed;
+      z-index: 300;
+      left: 0%;
+    }
+    .gameboy-top {
+      position: fixed;
+      z-index: 300;
+      top: 0%;
+      left: 0%;
+    }  
+    .gameboy-left {
+      position: fixed;
+      z-index: 299;
+      left: 0%;
+    }
+    .gameboy-right {
+      position: fixed;
+      z-index: 299;
+      right: 0%;
+    }
+    .arrow{
+      position: fixed;
+      z-index: 301;
+      opacity: 0%;
+    }
+    .up{
+      bottom: 13%;
+      left: 17%;
+      width: 8%;
+      height: 5%;
+    }
+    .down{
+      bottom: 6%;
+      left: 17%;
+      width: 8%;
+      height: 5%;
+    }
+    .left{
+      bottom: 10%;
+      left: 8%;
+      width: 10%;
+      height: 4%;
+    }
+    .right{
+      bottom: 10%;
+      left: 23%;
+      width: 10%;
+      height: 4%;
+    }
+    .start{
+      bottom: 4%;
+      left: 53%;
+      width: 10%;
+      height: 2%;
+    }
+}
